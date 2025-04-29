@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pau Carrera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#0c4a6e',
+                    secondary: '#f1f5f9',
+                    dark: '#0f172a',
+                    light: '#f8fafc',
+                    accent: '#38bdf8',
+                }
+            }
+        }
+    }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700&display=swap');
+      
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+          font-family: 'Inter', sans-serif;
+          background-color: #0f172a;
+          color: #f8fafc;
+      }
+
+      code, .font-mono {
+          font-family: 'Fira Code', monospace;
+      }
+
+      .gradient-bg {
+          background: linear-gradient(120deg, #082f49 0%, #0c4a6e 100%);
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/8a30de6bf5.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm shadow-sm">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-mono font-bold text-primary">
+          <span class="text-accent">&lt;</span>poksy<span class="text-accent">/&gt;</span>
+        </a>
+        
+        <div class="flex items-center space-x-4">
+          
+          <!-- Links -->
+          <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-primary transition-colors">About</a>
+            <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+            <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+          </div>
+          
+          <button id="mode-toggle" class="p-1">
+            <i class="fa-solid fa-moon text-dark"></i>
+          </button>
+          
+          <div class="relative group">
+            <button class="flex items-center space-x-2 px-2 py-1 rounded-md hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-primary">
+              <img src="assets/icons/flags/en.ico" alt="English" class="w-5 h-5" id="current-lang">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 group-hover:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="absolute right-0 mt-2 w-28 bg-white rounded-md shadow-xl opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity">
+              <a href="#" onclick="setLenguage('es')" class="flex items-center px-4 py-2 hover:bg-gray-100 transition-colors">
+                <img src="assets/icons/flags/es.ico" alt="Español" class="w-5 h-5 mr-2">ES
+              </a>
+              <a href="#" onclick="setLenguage('cat')" class="flex items-center px-4 py-2 hover:bg-gray-100 transition-colors">
+                <img src="assets/icons/flags/cat.ico" alt="Català" class="w-5 h-5 mr-2">CAT
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      
+        <button class="md:hidden text-dark" id="menu-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden absolute w-full bg-white shadow-md" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white">
+        <div class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <div class="rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 border-4 border-white shadow-xl">
+                    <img src="assets/images/profile-picture.jpg" alt="Profile Picture" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="md:w-2/3 text-center md:text-left md:pl-8">
+                <p class="text-lg mb-2 text-gray-20 0">Hey there!, i'm-</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Pau Carrera Nonales</h1>
+                <p class="text-xl md:text-2xl mb-6">Java Developer & Fullstack Enthusiast</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
+                    <a href="https://github.com/poksyy" target="_blank" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
+                        <i class="fab fa-github mr-2"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/pau-carrera/" target="_blank" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
+                        <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                    </a>
+                    <a href="mailto:pxcarrera@gmail.com" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
+                        <i class="fas fa-envelope mr-2"></i> Mail
+                    </a>
+                    <a href="cv.pdf" target="_blank" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
+                        <i class="fas fa-file-alt mr-2"></i> CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white text-gray-900">
+      <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-12 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">ABOUT ME</h2>
+          <div class="max-w-4xl mx-auto">
+              <p class="text-lg mb-6">
+                  Hello! I'm <span class="text-primary font-semibold">Pau Xavier Carrera Nonales</span>, a <span class="text-primary font-semibold">Java Developer</span> with a passion for building robust, scalable applications and exploring new <span class="text-primary font-semibold">technologies</span>. My expertise is rooted in <span class="text-primary font-semibold">Java</span> ecosystem technologies like Spring Boot and Hibernate, complemented by experience with <span class="text-primary font-semibold">JavaScript</span>, <span class="text-primary font-semibold">Flutter / Dart</span>, <span class="text-primary font-semibold">Kotlin</span>, <span class="text-primary font-semibold">Node</span>, and more.
+              </p>
+              <p class="text-lg">
+                  My approach combines <span class="text-primary font-semibold">creativity</span> with <span class="text-primary font-semibold">logic</span>, always seeking continuous improvement and effective solutions. I'm ready to take on new challenges and contribute to projects that transform the way people interact with technology!
+              </p>
+          </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-secondary text-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-12 text-center">Technologies & Tools</h2>
+    
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <!-- Java -->
+          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+            <div class="text-4xl mb-2 text-primary">
+              <i class="fab fa-java"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Java</h4>
+            <p class="text-sm text-gray-600">Spring Boot, Maven</p>
+          </div>
+          <!-- Kotlin -->
+          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+            <div class="text-4xl mb-2 text-primary">
+              <i class="fab fa-android"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Kotlin</h4>
+            <p class="text-sm text-gray-600">Jetpack Compose</p>
+          </div>
+          <!-- Flutter -->
+          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+            <div class="text-4xl mb-2 text-primary">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Flutter</h4>
+            <p class="text-sm text-gray-600">Dart, Flame</p>
+          </div>
+          <!-- Git & Tools Section -->
+          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+            <div class="text-4xl mb-2 text-primary">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Version Control & Project Management</h4>
+            <p class="text-sm text-gray-600">GitHub, Jira</p>
+          </div>
+          <!-- MySQL -->
+          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
+            <div class="text-4xl mb-2 text-primary">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Database Management</h4>
+            <p class="text-sm text-gray-600">MySQL, MongoDB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">EXPERIENCE</h2>
+            
+            <!-- Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex rounded-md shadow-sm" role="group">
+                    <button type="button" class="px-6 py-2 text-sm font-medium bg-primary text-white rounded-l-lg border border-primary" id="career-tab">Career</button>
+                    <button type="button" class="px-6 py-2 text-sm font-medium bg-white text-primary hover:bg-gray-100 rounded-r-lg border border-primary" id="education-tab">Education</button>
+                </div>
+            </div>
+            
+            <div id="career-timeline">
+              <!-- Timeline Item 1: Internship at Wincom -->
+              <div class="flex flex-col md:flex-row mb-12">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2024-25</div>
+                </div>
+                  <div class="md:w-3/4">
+                      <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                          <div class="flex items-center mb-4">
+                              <img src="assets/images/logos/wincom.png" alt="Wincom Logo" class="w-12 h-12 mr-4 object-contain">
+                              <div>
+                                  <h3 class="text-xl font-bold">Internship Developer</h3>
+                                  <p class="text-primary">Wincom Consulting S.L.</p>
+                              </div>
+                          </div>
+                          <p class="mb-4">Participated in the development and maintenance of Windchill extensions using Maven-based Java projects, JSP, HTML, CSS, and Wincom's proprietary technology. Gained experience with Azure DevOps pipelines for CI/CD and used GitHub for version control, including commits, repositories, branches, and collaborative workflows. Managed tasks using Jira and collaborated through Microsoft Teams. Developed and executed test plans with JUnit for automated testing.</p>
+                          <div class="flex flex-wrap gap-2">
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Java</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Maven</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">JSP</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">HTML/CSS</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Azure DevOps</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">GitHub</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Jira</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">JUnit</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Timeline Item 2: Fullstack Mobile App at Copay -->
+              <div class="flex flex-col md:flex-row mb-12">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2024-25</div>
+                </div>
+                <div class="md:w-3/4">
+                    <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                        <div class="flex items-center mb-4">
+                            <img src="assets/images/logos/copay.png" alt="Copay Logo" class="w-12 h-12 mr-4 object-contain">
+                            <div>
+                                <h3 class="text-xl font-bold">Fullstack Mobile App</h3>
+                                <p class="text-primary">Copay - Stucom Project</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Developed a full-featured mobile application for expense sharing as part of an academic project. Built with Kotlin and Jetpack Compose for the Android frontend, and Java with Spring Boot for the backend. Integrated RESTful APIs with custom endpoints, designed CRUD operations, and implemented JWT-based authentication. Utilized GitHub Projects for managing the code and project workflow, organizing repositories with structured branching strategies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Java</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Kotlin</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Spring Boot</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Jetpack Compose</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">REST API</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">JWT Authentication</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">GitHub</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Maven</span>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <!-- Future Item -->
+              <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">Next</div>
+                </div>
+                <div class="md:w-3/4">
+                    <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                        <h3 class="text-xl font-bold mb-4 text-primary">Your next opportunity?</h3>
+                        <p class="mb-4">Looking for new challenges to grow as a Java developer and expand my skills.</p>
+                        <a href="#contact" class="inline-flex items-center bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                            Let's talk <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+              </div>  
+            </div>
+            
+            <!-- Education Timeline -->
+            <div id="education-timeline" class="max-w-4xl mx-auto hidden">
+                <!-- Education Item 1 -->
+                <div class="flex flex-col md:flex-row mb-12">
+                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                        <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2023</div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                            <div class="flex items-center mb-4">
+                                <img src="assets/images/logos/stucom.png" alt="Stucom Logo" class="w-12 h-12 mr-4 object-contain">
+                                <div>
+                                    <h3 class="text-xl font-bold">Advanced Vocational Training</h3>
+                                    <p class="text-primary">Stucom Pelai Barcelona</p>
+                                </div>
+                            </div>
+                            <p>Learned the fundamentals of web application development including HTML, CSS, PHP, and JavaScript, along with Java for backend development and mobile application programming using Kotlin with Compose and Dart with Flutter.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 2 -->
+                <div class="flex flex-col md:flex-row mb-12">
+                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                        <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2018</div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                            <div class="flex items-center mb-4">
+                                <img src="assets/images/logos/epsa.png" alt="Escola Pia Logo" class="w-12 h-12 mr-4 object-contain">
+                                <div>
+                                    <h3 class="text-xl font-bold">Technological Baccalaureate</h3>
+                                    <p class="text-primary">Escola Pia Sant Antoni</p>
+                                </div>
+                            </div>
+                            <p>Completed a technological baccalaureate with focus on mathematics, physics, and technology foundations.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Item -->
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                        <div class="inline-block md:block bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full mb-2">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-primary">
+                          <h3 class="text-xl font-bold text-primary mb-4">Currently Learning</h3>
+                          <p class="mb-4 text-gray-700">Expanding my skills in modern development technologies:</p>
+                          <div class="flex flex-wrap gap-2">
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Java Certification</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">React</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Cloud Platforms</span>
+                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">TypeScript</span>
+                          </div>
+                      </div>
+                  </div>                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-secondary">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">PROJECTS</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <!-- Project 1 -->
+                  <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-72 bg-gray-200">
+                        <img src="/assets/images/projects/copay.jpg" alt="Copay App" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col justify-between" style="height: 320px;"> <!-- Adjusted height -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Copay Expense Sharing App</h3>
+                            <p class="text-gray-600 mb-4">Fullstack mobile application for managing group expenses, built with Kotlin (Compose) for the frontend and Java Spring Boot for the backend.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Kotlin</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Jetpack Compose</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Java</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Spring Boot</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">REST API</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">JWT</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="https://github.com/poksyy/copay-app-backend" target="_blank" class="text-[#1e3a8a] hover:underline font-medium">Github Backend</a>
+                            <a href="https://github.com/poksyy/copay-app-frontend" target="_blank" class="text-[#1e3a8a] hover:underline font-medium">GitHub Frontend</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- Project 2 -->
+                  <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-72 bg-gray-200">
+                        <img src="/assets/images/projects/pooshop.jpg" alt="POOSHOP App" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-6 flex flex-col justify-between" style="height: 320px;"> <!-- Adjusted height -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">POOSHOP</h3>
+                            <p class="text-gray-600 mb-4">Web application built with Java Spring Boot for managing an e-commerce store. Features include product addition, deletion, stock management, and sales tracking using MVC architecture, Jakarta, MySQL, MongoDB, etc.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Java</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Spring Boot</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">MVC</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Jakarta (Jaxb)</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">MySQL</span>
+                                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between mt-auto">
+                            <a href="https://github.com/poksyy/poo_shop" target="_blank" rel="noopener noreferrer" class="text-[#1e3a8a] hover:underline font-medium">Github</a>
+                        </div>
+                    </div>
+                  </div>
+
+                  <!-- Project 3 (Space Reserved) -->
+                  <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-72 bg-gray-200">
+                        <!-- No image yet -->
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Project Coming Soon</h3>
+                        <p class="text-gray-600 mb-4">This section will be updated with a project soon.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <!-- Placeholder for future tags -->
+                            <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-md">Placeholder</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <!-- No links yet -->
+                            <a href=# target="_blank" class="text-[#1e3a8a] hover:underline font-medium">Coming soon</a>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/poksyy" class="inline-flex items-center text-[#1e3a8a] hover:underline font-semibold">
+                    See more projects on GitHub
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-12 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">GET IN TOUCH</h2>
+          
+          <div class="max-w-2xl mx-auto">
+              <p class="text-center text-lg mb-8">Interested in working together or just want to say hi? Drop me a message!</p>
+              
+              <form class="bg-light p-8 rounded-xl shadow-sm" id="contact-form" method="POST" action="#">
+                  <!-- Name Field -->
+                  <div class="mb-6">
+                      <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Your Name" required>
+                  </div>
+                  
+                  <!-- Email Field -->
+                  <div class="mb-6">
+                      <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Your Email" required>
+                  </div>
+                  
+                  <!-- Message Field -->
+                  <div class="mb-6">
+                      <textarea id="message" name="message" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition" placeholder="Your Message" rows="6" required></textarea>
+                  </div>
+                  
+                  <!-- Submit Button -->
+                  <div>
+                      <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                          Send Message
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </section>
+    <script src="js/experience-tabs.js"></script>
+  </body>
+</html>
