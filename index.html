@@ -31,15 +31,26 @@
           font-family: 'Inter', sans-serif;
           background-color: #0f172a;
           color: #f8fafc;
-      }
+      }  
 
-      code, .font-mono {
-          font-family: 'Fira Code', monospace;
-      }
+      @keyframes oceanWave {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+        }
 
-      .gradient-bg {
-          background: linear-gradient(120deg, #082f49 0%, #0c4a6e 100%);
-      }
+        .gradient-bg {
+        background: linear-gradient(-45deg, #0f172a, #0e2431, #0d1b41, #172554);
+        background-size: 400% 400%;
+        animation: oceanWave 45s ease-in-out infinite;
+        }
+
     </style>
     <script src="https://kit.fontawesome.com/8a30de6bf5.js" crossorigin="anonymous"></script>
 </head>
@@ -113,9 +124,11 @@
                 </div>
             </div>
             <div class="md:w-2/3 text-center md:text-left md:pl-8">
-                <p class="text-lg mb-2 text-gray-20 0">Hey there!, i'm-</p>
+                <p class="text-lg mb-2 text-gray-200 font-mono">Hey there, I'm</p>
                 <h1 class="text-4xl md:text-6xl font-bold mb-4">Pau Carrera Nonales</h1>
-                <p class="text-xl md:text-2xl mb-6">Java Developer & Fullstack Enthusiast</p>
+                <div class="text-xl md:text-2xl mb-6 font-mono text-white">
+                  <span id="typed-text"></span><span class="blinking-cursor">|</span>
+                </div>
                 <div class="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
                     <a href="https://github.com/poksyy" target="_blank" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
                         <i class="fab fa-github mr-2"></i> GitHub
@@ -126,9 +139,9 @@
                     <a href="mailto:pxcarrera@gmail.com" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
                         <i class="fas fa-envelope mr-2"></i> Mail
                     </a>
-                    <a href="cv.pdf" target="_blank" class="flex items-center bg-white/20 hover:bg-white/30 px-4 py-2 rounded-full transition-colors">
+                    <a href="cv.pdf" target="_blank" class="flex items-center bg-white text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-full font-semibold transition-colors shadow">
                         <i class="fas fa-file-alt mr-2"></i> CV
-                    </a>
+                    </a>                    
                 </div>
             </div>
         </div>
@@ -149,54 +162,59 @@
       </div>
     </section>
 
-    <section class="py-20 bg-secondary text-gray-900">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold mb-12 text-center">Technologies & Tools</h2>
-    
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          <!-- Java -->
-          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-            <div class="text-4xl mb-2 text-primary">
-              <i class="fab fa-java"></i>
+    <section class="py-20 gradient-bg from-blue-800 via-blue-900 to-indigo-900 text-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-white">Technologies & Tools</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <!-- Java -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-2xl transition-shadow transform hover:scale-105 transition-all duration-300 ease-in-out text-center">
+                    <div class="text-5xl mb-2 text-primary transition-transform">
+                        <i class="fab fa-java"></i>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-1">Java</h4>
+                    <p class="text-sm text-gray-600">Spring Boot, Maven</p>
+                    <p class="text-sm text-gray-500">Backend development with Spring Boot.</p>
+                </div>
+                <!-- Kotlin -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-2xl transition-shadow transform hover:scale-105 transition-all duration-300 ease-in-out text-center">
+                  <div class="text-5xl mb-2 text-primary transition-transform">
+                    <i class="fab fa-android"></i>
+                  </div>
+                  <h4 class="font-semibold text-lg mb-1">Kotlin</h4>
+                  <p class="text-sm text-gray-600">Jetpack Compose</p>
+                  <p class="text-sm text-gray-500">Mobile apps with Kotlin and Jetpack Compose.</p>
+                </div>
+                <!-- Flutter -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-2xl transition-shadow transform hover:scale-105 transition-all duration-300 ease-in-out text-center">
+                  <div class="text-5xl mb-2 text-primary transition-transform">
+                    <i class="fas fa-mobile-alt"></i>
+                  </div>
+                  <h4 class="font-semibold text-lg mb-1">Flutter</h4>
+                  <p class="text-sm text-gray-600">Dart, Flame</p>
+                  <p class="text-sm text-gray-500">Cross-platform apps with Flutter.</p>
+                </div>
+                <!-- Git & Tools Section -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-2xl transition-shadow transform hover:scale-105 transition-all duration-300 ease-in-out text-center">
+                  <div class="text-5xl mb-2 text-primary transition-transform">
+                    <i class="fab fa-git-alt"></i>
+                  </div>
+                  <h4 class="font-semibold text-lg mb-1">Version Control & Project Management</h4>
+                  <p class="text-sm text-gray-600">GitHub, Jira</p>
+                  <p class="text-sm text-gray-500">Version control and project management tools.</p>
+                </div>
+                <!-- MySQL -->
+                <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-2xl transition-shadow transform hover:scale-105 transition-all duration-300 ease-in-out text-center">
+                  <div class="text-5xl mb-2 text-primary transition-transform">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <h4 class="font-semibold text-lg mb-1">Database Management</h4>
+                  <p class="text-sm text-gray-600">MySQL, MongoDB</p>
+                  <p class="text-sm text-gray-500">Database management and optimization.</p>
+                </div>
             </div>
-            <h4 class="font-semibold text-lg mb-1">Java</h4>
-            <p class="text-sm text-gray-600">Spring Boot, Maven</p>
-          </div>
-          <!-- Kotlin -->
-          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-            <div class="text-4xl mb-2 text-primary">
-              <i class="fab fa-android"></i>
-            </div>
-            <h4 class="font-semibold text-lg mb-1">Kotlin</h4>
-            <p class="text-sm text-gray-600">Jetpack Compose</p>
-          </div>
-          <!-- Flutter -->
-          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-            <div class="text-4xl mb-2 text-primary">
-              <i class="fas fa-mobile-alt"></i>
-            </div>
-            <h4 class="font-semibold text-lg mb-1">Flutter</h4>
-            <p class="text-sm text-gray-600">Dart, Flame</p>
-          </div>
-          <!-- Git & Tools Section -->
-          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-            <div class="text-4xl mb-2 text-primary">
-              <i class="fab fa-git-alt"></i>
-            </div>
-            <h4 class="font-semibold text-lg mb-1">Version Control & Project Management</h4>
-            <p class="text-sm text-gray-600">GitHub, Jira</p>
-          </div>
-          <!-- MySQL -->
-          <div class="bg-white/90 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow text-center">
-            <div class="text-4xl mb-2 text-primary">
-              <i class="fas fa-database"></i>
-            </div>
-            <h4 class="font-semibold text-lg mb-1">Database Management</h4>
-            <p class="text-sm text-gray-600">MySQL, MongoDB</p>
-          </div>
         </div>
-      </div>
-    </section>
+    </section>    
     
     <!-- Experience Section -->
     <section id="experience" class="py-20 bg-white">
@@ -285,72 +303,124 @@
               </div>  
             </div>
             
-            <!-- Education Timeline -->
-            <div id="education-timeline" class="max-w-4xl mx-auto hidden">
-                <!-- Education Item 1 -->
-                <div class="flex flex-col md:flex-row mb-12">
-                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
-                        <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2023</div>
-                    </div>
-                    <div class="md:w-3/4">
-                        <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
-                            <div class="flex items-center mb-4">
-                                <img src="assets/images/logos/stucom.png" alt="Stucom Logo" class="w-12 h-12 mr-4 object-contain">
-                                <div>
-                                    <h3 class="text-xl font-bold">Advanced Vocational Training</h3>
-                                    <p class="text-primary">Stucom Pelai Barcelona</p>
-                                </div>
+        <!-- Education Timeline -->
+        <div id="education-timeline" class="max-w-4xl mx-auto hidden">
+            <!-- Education Item 1 -->
+            <div class="flex flex-col md:flex-row mb-12">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2023</div>
+                </div>
+                <div class="md:w-3/4">
+                    <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                        <div class="flex items-center mb-4">
+                            <img src="assets/images/logos/stucom.png" alt="Stucom Logo" class="w-12 h-12 mr-4 object-contain">
+                            <div>
+                                <h3 class="text-xl font-bold">Advanced Vocational Training</h3>
+                                <p class="text-primary">Stucom Pelai Barcelona</p>
                             </div>
-                            <p>Learned the fundamentals of web application development including HTML, CSS, PHP, and JavaScript, along with Java for backend development and mobile application programming using Kotlin with Compose and Dart with Flutter.</p>
                         </div>
+                        <p>Learned the fundamentals of web application development including HTML, CSS, PHP, and JavaScript, along with Java for backend development and mobile application programming using Kotlin with Compose and Dart with Flutter.</p>
                     </div>
                 </div>
-                
-                <!-- Education Item 2 -->
-                <div class="flex flex-col md:flex-row mb-12">
-                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
-                        <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2018</div>
-                    </div>
-                    <div class="md:w-3/4">
-                        <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
-                            <div class="flex items-center mb-4">
-                                <img src="assets/images/logos/epsa.png" alt="Escola Pia Logo" class="w-12 h-12 mr-4 object-contain">
-                                <div>
-                                    <h3 class="text-xl font-bold">Technological Baccalaureate</h3>
-                                    <p class="text-primary">Escola Pia Sant Antoni</p>
-                                </div>
+            </div>
+
+            <!-- Education Item 2 -->
+            <div class="flex flex-col md:flex-row mb-12">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-primary text-white px-3 py-1 rounded-full mb-2">2018</div>
+                </div>
+                <div class="md:w-3/4">
+                    <div class="bg-light rounded-lg shadow-md p-6 border-l-4 border-primary">
+                        <div class="flex items-center mb-4">
+                            <img src="assets/images/logos/epsa.png" alt="Escola Pia Logo" class="w-12 h-12 mr-4 object-contain">
+                            <div>
+                                <h3 class="text-xl font-bold">Technological Baccalaureate</h3>
+                                <p class="text-primary">Escola Pia Sant Antoni</p>
                             </div>
-                            <p>Completed a technological baccalaureate with focus on mathematics, physics, and technology foundations.</p>
                         </div>
+                        <p>Completed a technological baccalaureate with focus on mathematics, physics, and technology foundations.</p>
                     </div>
                 </div>
-                
-                <!-- Learning Item -->
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
-                        <div class="inline-block md:block bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full mb-2">
-                            <i class="fas fa-infinity"></i>
+            </div>
+
+            <!-- Learning Item -->
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/4 text-center md:text-right md:pr-6 mb-4 md:mb-0">
+                    <div class="inline-block md:block bg-gradient-to-r from-primary to-accent text-white px-3 py-1 rounded-full mb-2">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                </div>
+                <div class="md:w-3/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-primary">
+                        <h3 class="text-xl font-bold text-primary mb-4">Currently Learning</h3>
+                        <p class="mb-4 text-gray-700">Expanding my skills in modern development technologies:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Java Certification</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">React</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Cloud Platforms</span>
+                            <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">TypeScript</span>
                         </div>
                     </div>
-                    <div class="md:w-3/4">
-                      <div class="bg-white rounded-lg shadow-md p-6 border-l-4 border-primary">
-                          <h3 class="text-xl font-bold text-primary mb-4">Currently Learning</h3>
-                          <p class="mb-4 text-gray-700">Expanding my skills in modern development technologies:</p>
-                          <div class="flex flex-wrap gap-2">
-                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Java Certification</span>
-                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">React</span>
-                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">Cloud Platforms</span>
-                              <span class="bg-primary/10 text-primary px-2 py-1 rounded-md text-sm">TypeScript</span>
-                          </div>
-                      </div>
-                  </div>                  
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Value Proposition Section -->
+    <section id="value-proposition" class="py-20 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">What Value Can I Bring to Your Company?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Skill 1: Development -->
+                <div class="bg-gray-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Cross-Platform Development</h3>
+                    <p class="text-gray-400 mb-4">
+                        I specialize in developing high-quality cross-platform applications using Flutter and React Native, ensuring seamless performance across web, iOS, and Android.
+                    </p>
+                </div>
+
+                <!-- Skill 2: Problem Solving -->
+                <div class="bg-gray-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Problem Solving</h3>
+                    <p class="text-gray-400 mb-4">
+                        I excel in diagnosing issues and finding efficient, scalable solutions that align with both technical and business needs, ensuring quick project delivery.
+                    </p>
+                </div>
+
+                <!-- Skill 3: Communication -->
+                <div class="bg-gray-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Technical & Business Communication</h3>
+                    <p class="text-gray-400 mb-4">
+                        I bridge the gap between technical teams and business stakeholders, ensuring clear communication and alignment throughout the project lifecycle.
+                    </p>
+                </div>
+
+                <!-- Skill 4: Continuous Learning -->
+                <div class="bg-gray-800 rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-4">Adaptability & Growth</h3>
+                    <p class="text-gray-400 mb-4">
+                        I stay up-to-date with the latest technologies and trends, continuously learning and adapting to deliver innovative solutions that meet business goals.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-400">Looking for a proactive, skilled developer? Let’s connect and discuss how I can contribute to your company’s success.</p>
+                <a href="#contact" class="inline-flex items-center mt-4 text-[#1e3a8a] hover:underline font-semibold">
+                    Contact Me
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-secondary">
+    <section id="projects" class="py-20 gradi">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center relative after:content-[''] after:block after:w-24 after:h-1 after:bg-primary after:mx-auto after:mt-4">PROJECTS</h2>
             
@@ -471,6 +541,7 @@
           </div>
       </div>
     </section>
+    <script src="js/header-text.js"></script>
     <script src="js/experience-tabs.js"></script>
   </body>
 </html>
